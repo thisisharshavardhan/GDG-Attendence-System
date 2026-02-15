@@ -29,14 +29,6 @@ const Dashboard = () => {
       bg: '#fce8e6',
     },
     {
-      icon: 'qr_code',
-      title: 'Generate QR',
-      desc: 'Create attendance QR codes',
-      path: '/admin/generate-qr',
-      color: '#34A853',
-      bg: '#e6f4ea',
-    },
-    {
       icon: 'assessment',
       title: 'Reports',
       desc: 'View attendance analytics',

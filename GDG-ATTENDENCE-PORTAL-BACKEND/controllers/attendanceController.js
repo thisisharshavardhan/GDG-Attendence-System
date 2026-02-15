@@ -397,7 +397,7 @@ const scanQRAttendance = async (req, res) => {
         return res.status(400).json({
           success: false,
           error: 'LocationRequired',
-          message: 'This meeting requires location access for attendance. Please enable GPS and try again.',
+          message: 'This meeting has geofencing enabled. Please allow location access in your browser and try scanning again.',
         })
       }
 
@@ -417,7 +417,7 @@ const scanQRAttendance = async (req, res) => {
         return res.status(400).json({
           success: false,
           error: 'OutOfRange',
-          message: `You are ${Math.round(distance)}m away from the meeting location. You must be within ${meeting.geofencing.radius}m to mark attendance.`,
+          message: `You are outside the allowed geofence. You are approximately ${Math.round(distance)}m away, but you need to be within ${meeting.geofencing.radius}m of the meeting location to mark attendance.`,
         })
       }
     }

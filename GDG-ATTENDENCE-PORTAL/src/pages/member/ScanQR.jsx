@@ -109,6 +109,18 @@ const ScanQR = () => {
     return () => clearTimeout(timer)
   }, [startScanner])
 
+  // ── Helper: get fresh location with timeout ──────
+  const acquireLocation = () => {
+    return new Promise((resolve) => {
+      if (!navigator.geolocation) return resolve(null)
+      navigator.geolocation.getCurrentPosition(
+        (pos) => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude, accuracy: pos.coords.accuracy }),
+        () => resolve(null),
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 5000 }
+      )
+    })
+  }
+
   // ── Handle successful QR scan ─────────────────────
   const handleScan = async (qrData) => {
     // Prevent duplicate processing
@@ -147,12 +159,22 @@ const ScanQR = () => {
         }
       }
 
+      // Get the best available location — use existing or acquire fresh
+      let loc = location
+      if (!loc && locationStatus !== 'denied') {
+        loc = await acquireLocation()
+        if (loc) {
+          setLocation(loc)
+          setLocationStatus('acquired')
+        }
+      }
+
       // Send to backend
       const payload = { qrData }
-      if (location) {
-        payload.lat = location.lat
-        payload.lng = location.lng
-        payload.accuracy = location.accuracy
+      if (loc) {
+        payload.lat = loc.lat
+        payload.lng = loc.lng
+        payload.accuracy = loc.accuracy
       }
 
       const data = await api.post('/attendance/scan-qr', payload)
@@ -182,10 +204,10 @@ const ScanQR = () => {
         errTitle = 'Meeting Ended'
         errType = 'warn'
       } else if (errCode === 'OutOfRange') {
-        errTitle = 'Out of Range'
+        errTitle = 'Outside Geofence'
         errType = 'warn'
       } else if (errCode === 'LocationRequired') {
-        errTitle = 'Location Required'
+        errTitle = 'Location Access Needed'
         errType = 'warn'
       } else if (errCode === 'Forbidden') {
         errTitle = 'Access Denied'

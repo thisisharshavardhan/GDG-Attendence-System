@@ -14,7 +14,6 @@ import NotFound from './pages/NotFound'
 // Admin pages
 import ManageMembers from './pages/admin/ManageMembers'
 import ManageMeetings from './pages/admin/ManageMeetings'
-import GenerateQR from './pages/admin/GenerateQR'
 import Reports from './pages/admin/Reports'
 
 // PR pages
@@ -47,10 +46,6 @@ function App() {
         <Route
           path="/admin/meetings"
           element={<RoleBasedRoute allowedRoles={['admin']}><ManageMeetings /></RoleBasedRoute>}
-        />
-        <Route
-          path="/admin/generate-qr"
-          element={<RoleBasedRoute allowedRoles={['admin']}><GenerateQR /></RoleBasedRoute>}
         />
         <Route
           path="/admin/reports"

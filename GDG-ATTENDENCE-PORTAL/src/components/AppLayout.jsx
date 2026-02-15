@@ -58,7 +58,6 @@ const AppLayout = () => {
       links: [
         { to: '/admin/members', icon: 'people', label: 'Members', roles: ['admin'] },
         { to: '/admin/meetings', icon: 'event', label: 'Meetings', roles: ['admin'] },
-        { to: '/admin/generate-qr', icon: 'qr_code', label: 'Generate QR', roles: ['admin'] },
         { to: '/admin/reports', icon: 'assessment', label: 'Reports', roles: ['admin'] },
       ],
     },
