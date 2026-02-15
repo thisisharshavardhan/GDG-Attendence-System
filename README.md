@@ -1,11 +1,11 @@
 <div align="center">
 
-# 🎯 GDG QR-Based Attendance Portal
+# GDG QR-Based Attendance Portal
 
 A **secure, real-time QR attendance management system** built for Google Developer Groups.  
 Auto-refreshing QR codes, geofencing, role-based access, online meeting support & more.
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-GitHub_Pages-blue?style=for-the-badge)](https://thisisharshavardhan.github.io/GDG-Attendence-System/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-blue?style=for-the-badge)](https://thisisharshavardhan.github.io/GDG-Attendence-System/)
 [![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=flat-square&logo=react)](https://react.dev)
 [![Express](https://img.shields.io/badge/Express-5.2.1-000000?style=flat-square&logo=express)](https://expressjs.com)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose_9-47A248?style=flat-square&logo=mongodb)](https://mongoosejs.com)
@@ -16,7 +16,7 @@ Auto-refreshing QR codes, geofencing, role-based access, online meeting support 
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Login Page
 > Google-themed login with GSAP floating-dot animations, Google Sign-In & email/password authentication.
@@ -50,35 +50,35 @@ Auto-refreshing QR codes, geofencing, role-based access, online meeting support 
 
 ---
 
-## ✨ Features
+## Features
 
 ### Core
-- 🔐 **Firebase Authentication** — Google Sign-In + Email/Password
-- 👥 **Role-Based Access Control** — Admin · PR Team · Member
-- 📋 **Member Management** — CRUD with search, filter, pagination, sort
-- 📅 **Meeting Management** — Offline & online meetings with full CRUD
-- 📱 **QR Code Generation** — Unique QR per meeting
-- 🔄 **QR Auto-Refresh (20s)** — Prevents screenshot sharing; server-side token regeneration
-- 📷 **Camera QR Scanning** — Members scan via device camera (html5-qrcode)
-- 📍 **Automatic Geolocation Capture** — Timestamp + location recorded on attendance
-- 🚫 **Duplicate Prevention** — Unique compound index `(meeting, user)` at database level
-- 📊 **Attendance Reports** — Per-meeting and per-member views with CSV export
-- 🔗 **Online Meeting Attendance** — Shareable attendance links with Google Meet redirect
-- 🛡️ **Protected Routes** — Frontend route guards by role
+- **Firebase Authentication** — Google Sign-In + Email/Password
+- **Role-Based Access Control** — Admin · PR Team · Member
+- **Member Management** — CRUD with search, filter, pagination, sort
+- **Meeting Management** — Offline & online meetings with full CRUD
+- **QR Code Generation** — Unique QR per meeting
+- **QR Auto-Refresh (20s)** — Prevents screenshot sharing; server-side token regeneration
+- **Camera QR Scanning** — Members scan via device camera (html5-qrcode)
+- **Automatic Geolocation Capture** — Timestamp + location recorded on attendance
+- **Duplicate Prevention** — Unique compound index `(meeting, user)` at database level
+- **Attendance Reports** — Per-meeting and per-member views with CSV export
+- **Online Meeting Attendance** — Shareable attendance links with Google Meet redirect
+- **Protected Routes** — Frontend route guards by role
 
 ### Bonus / Creative
-- 🗺️ **Geofencing** — Admin sets location + radius on an interactive MapLibre GL map; server validates distance via Haversine formula
-- ⏸️ **QR Pause/Resume** — Pause auto-refresh without deactivating the meeting
-- ⏰ **Auto-Activation Service** — Meetings activate/deactivate automatically based on scheduled time
-- 🎯 **Participation Restrictions** — "Anyone" or "Selected Members" with a searchable picker
-- 🎨 **Google Workspace UI** — Styled to match Google Admin Console (Google Sans, Material Symbols, Google-colored accents)
-- ✨ **GSAP Animated Login** — Floating dots, wave paths, pulsing GDG logo
-- 🚀 **CI/CD with GitHub Actions** — Auto-build and deploy to GitHub Pages on push
-- 🔁 **Token Auto-Retry** — API client auto-refreshes Firebase token on 401
+- **Geofencing** — Admin sets location + radius on an interactive MapLibre GL map; server validates distance via Haversine formula
+- **QR Pause/Resume** — Pause auto-refresh without deactivating the meeting
+- **Auto-Activation Service** — Meetings activate/deactivate automatically based on scheduled time
+- **Participation Restrictions** — "Anyone" or "Selected Members" with a searchable picker
+- **Google Workspace UI** — Styled to match Google Admin Console (Google Sans, Material Symbols, Google-colored accents)
+- **GSAP Animated Login** — Floating dots, wave paths, pulsing GDG logo
+- **CI/CD with GitHub Actions** — Auto-build and deploy to GitHub Pages on push
+- **Token Auto-Retry** — API client auto-refreshes Firebase token on 401
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────┐
@@ -109,7 +109,7 @@ Auto-refreshing QR codes, geofencing, role-based access, online meeting support 
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology | Version |
 |-------|-----------|---------|
@@ -126,7 +126,7 @@ Auto-refreshing QR codes, geofencing, role-based access, online meeting support 
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 GDG-Attendence-System/
@@ -158,7 +158,7 @@ GDG-Attendence-System/
 
 ---
 
-## 👥 User Roles
+## User Roles
 
 | Role | Capabilities |
 |------|-------------|
@@ -168,7 +168,7 @@ GDG-Attendence-System/
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 <details>
 <summary><strong>Authentication</strong> — <code>/api/auth</code></summary>
@@ -239,7 +239,7 @@ GDG-Attendence-System/
 
 ---
 
-## 🔒 Security
+## Security
 
 | Feature | How |
 |---------|-----|
@@ -253,7 +253,7 @@ GDG-Attendence-System/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -317,7 +317,7 @@ npm run dev    # starts on http://localhost:5173
 
 ---
 
-## 🌐 Deployment
+## Deployment
 
 | Component | Platform |
 |-----------|----------|
@@ -327,7 +327,7 @@ npm run dev    # starts on http://localhost:5173
 
 ---
 
-## 📄 License
+## License
 
 This project was built as part of a **GDG VITB Task** assignment.
 
@@ -335,6 +335,6 @@ This project was built as part of a **GDG VITB Task** assignment.
 
 <div align="center">
 
-**Built with ❤️ by [Harsha Vardhan](https://github.com/thisisharshavardhan)**
+**Built by [Harsha Vardhan](https://github.com/thisisharshavardhan)**
 
 </div>
