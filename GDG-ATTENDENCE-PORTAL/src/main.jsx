@@ -5,9 +5,11 @@ import { AuthProvider } from './contexts/AuthContext'
 import './index.css'
 import App from './App.jsx'
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <AuthProvider>
         <App />
       </AuthProvider>
