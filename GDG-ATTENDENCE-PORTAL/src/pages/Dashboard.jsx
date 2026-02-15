@@ -141,7 +141,7 @@ const Dashboard = () => {
           <span className="gbar-sm" style={{ background: '#FBBC05' }} />
           <span className="gbar-sm" style={{ background: '#34A853' }} />
         </div>
-        <p>Google Developer Groups — On Campus </p>
+        <p>Google Developer Groups — On Campus</p>
       </div>
     </div>
   )
