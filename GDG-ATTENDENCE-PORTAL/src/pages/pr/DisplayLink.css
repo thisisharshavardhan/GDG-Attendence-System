@@ -1,0 +1,420 @@
+/* ─────────────────────────────────────────────────────
+   DisplayLink — PR page for showing attendance links
+   Matches DisplayQR.css design language
+   ───────────────────────────────────────────────────── */
+
+/* ── Layout ──────────────────────────────────────── */
+.dl-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: #f8f9fa;
+}
+
+.dl-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 24px;
+}
+
+/* ── Spinner ─────────────────────────────────────── */
+.dl-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e0e0e0;
+  border-top: 3px solid #4285f4;
+  border-radius: 50%;
+  animation: dl-spin 0.8s linear infinite;
+}
+
+@keyframes dl-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Error state ─────────────────────────────────── */
+.dl-load-error {
+  text-align: center;
+  max-width: 380px;
+}
+
+.dl-load-error-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #fce8e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dl-load-error-icon .material-icon {
+  font-size: 28px;
+  color: #d93025;
+}
+
+.dl-load-error-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #202124;
+  margin: 0 0 8px;
+}
+
+.dl-load-error-desc {
+  font-size: 14px;
+  color: #5f6368;
+  margin: 0 0 20px;
+}
+
+.dl-load-error-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: #f1f3f4;
+  color: #3c4043;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.dl-load-error-btn:hover {
+  background: #e8eaed;
+}
+
+/* ── Top bar ─────────────────────────────────────── */
+.dl-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #fff;
+  border-bottom: 1px solid #e8eaed;
+}
+
+.dl-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dl-back-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5f6368;
+  transition: background 0.15s;
+}
+
+.dl-back-btn:hover {
+  background: #f1f3f4;
+}
+
+.dl-meeting-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dl-meeting-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #202124;
+  margin: 0;
+}
+
+.dl-meeting-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dl-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #5f6368;
+}
+
+.dl-meta-item .material-icon {
+  font-size: 14px;
+}
+
+.dl-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dl-type-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #e8f0fe;
+  color: #1967d2;
+}
+
+.dl-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dl-status-live {
+  background: #e6f4ea;
+  color: #137333;
+}
+
+.dl-status-upcoming {
+  background: #e8f0fe;
+  color: #1967d2;
+}
+
+.dl-status-ended {
+  background: #f1f3f4;
+  color: #5f6368;
+}
+
+.dl-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34a853;
+  animation: dl-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes dl-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ── Main content ────────────────────────────────── */
+.dl-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+/* ── Link container ──────────────────────────────── */
+.dl-link-container {
+  text-align: center;
+  max-width: 520px;
+  width: 100%;
+}
+
+.dl-link-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #e8f0fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.dl-link-icon-wrap .material-icon {
+  font-size: 32px;
+  color: #1a73e8;
+}
+
+.dl-link-heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #202124;
+  margin: 0 0 8px;
+}
+
+.dl-link-desc {
+  font-size: 14px;
+  color: #5f6368;
+  line-height: 1.5;
+  margin: 0 0 24px;
+}
+
+.dl-link-box {
+  background: #f8f9fa;
+  border: 1px solid #e8eaed;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  word-break: break-all;
+}
+
+.dl-link-url {
+  font-size: 14px;
+  color: #1a73e8;
+  font-family: 'Roboto Mono', monospace;
+  line-height: 1.5;
+}
+
+/* ── Actions ─────────────────────────────────────── */
+.dl-link-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.dl-btn .material-icon {
+  font-size: 18px;
+}
+
+.dl-btn-primary {
+  background: #1a73e8;
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(26, 115, 232, 0.3);
+}
+
+.dl-btn-primary:hover:not(:disabled) {
+  background: #1765cc;
+  box-shadow: 0 2px 6px rgba(26, 115, 232, 0.4);
+}
+
+.dl-btn-copied {
+  background: #34a853 !important;
+}
+
+.dl-btn-secondary {
+  background: #f1f3f4;
+  color: #3c4043;
+}
+
+.dl-btn-secondary:hover:not(:disabled) {
+  background: #e8eaed;
+}
+
+.dl-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Meet link ───────────────────────────────────── */
+.dl-meet-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  font-size: 13px;
+  color: #5f6368;
+  padding: 12px 16px;
+  background: #f1f3f4;
+  border-radius: 8px;
+}
+
+.dl-meet-link .material-icon {
+  font-size: 18px;
+  color: #1a73e8;
+}
+
+.dl-meet-link a {
+  color: #1a73e8;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.dl-meet-link a:hover {
+  text-decoration: underline;
+}
+
+/* ── No link ─────────────────────────────────────── */
+.dl-no-link {
+  text-align: center;
+}
+
+.dl-no-link-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #f1f3f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.dl-no-link-icon .material-icon {
+  font-size: 36px;
+  color: #dadce0;
+}
+
+.dl-no-link-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #202124;
+  margin: 0 0 8px;
+}
+
+.dl-no-link-desc {
+  font-size: 14px;
+  color: #5f6368;
+  margin: 0 0 20px;
+}
+
+/* ── Google color bar ────────────────────────────── */
+.dl-google-bar {
+  display: flex;
+  height: 4px;
+}
+
+.dl-gbar {
+  flex: 1;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 600px) {
+  .dl-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+
+  .dl-topbar-right {
+    padding-left: 48px;
+  }
+
+  .dl-main {
+    padding: 32px 16px;
+  }
+
+  .dl-link-actions {
+    flex-direction: column;
+  }
+}

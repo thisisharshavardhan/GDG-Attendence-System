@@ -1,0 +1,76 @@
+/* ═══════════════════════════════════════════════════
+   Placeholder Page — Google-style "coming soon"
+   Shared by all unimplemented pages
+   ═══════════════════════════════════════════════════ */
+
+.ph-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+  padding: 2rem;
+  font-family: 'Google Sans', 'Segoe UI', Roboto, sans-serif;
+}
+
+.ph-card {
+  text-align: center;
+  max-width: 420px;
+}
+
+.ph-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.ph-icon .material-icon {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.ph-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #202124;
+  margin: 0 0 0.5rem;
+}
+
+.ph-desc {
+  font-size: 0.9375rem;
+  color: #5f6368;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.ph-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ph-chip {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #f1f3f4;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #5f6368;
+  letter-spacing: 0.01em;
+}

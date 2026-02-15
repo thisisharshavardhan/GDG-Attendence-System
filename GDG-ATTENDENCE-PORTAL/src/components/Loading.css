@@ -1,0 +1,113 @@
+/* Google-style Loading Container */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 1.5rem;
+  background: #ffffff;
+}
+
+/* Google-style circular progress */
+.spinner-large {
+  width: 48px;
+  height: 48px;
+  border: 3px solid transparent;
+  border-top-color: #4285F4;
+  border-right-color: #EA4335;
+  border-bottom-color: #FBBC05;
+  border-left-color: #34A853;
+  border-radius: 50%;
+  animation: google-spin 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes google-spin {
+  0% { 
+    transform: rotate(0deg);
+  }
+  100% { 
+    transform: rotate(360deg);
+  }
+}
+
+/* Alternative: Google dots loader */
+.google-dots-loader {
+  display: flex;
+  gap: 8px;
+}
+
+.google-dot-loader {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: bounce-loader 1.4s infinite ease-in-out both;
+}
+
+.google-dot-loader:nth-child(1) {
+  background: #4285F4;
+  animation-delay: -0.32s;
+}
+
+.google-dot-loader:nth-child(2) {
+  background: #EA4335;
+  animation-delay: -0.16s;
+}
+
+.google-dot-loader:nth-child(3) {
+  background: #FBBC05;
+  animation-delay: 0s;
+}
+
+.google-dot-loader:nth-child(4) {
+  background: #34A853;
+  animation-delay: 0.16s;
+}
+
+@keyframes bounce-loader {
+  0%, 80%, 100% { 
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% { 
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.loading-container p {
+  font-size: 0.875rem;
+  margin: 0;
+  color: #5f6368;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+}
+
+/* Linear progress bar (Google style) */
+.linear-progress {
+  width: 240px;
+  height: 4px;
+  background: #e8eaed;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.linear-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4285F4, #EA4335, #FBBC05, #34A853);
+  background-size: 200% 100%;
+  animation: linear-progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  border-radius: 2px;
+}
+
+@keyframes linear-progress {
+  0% {
+    transform: translateX(-100%);
+    background-position: 0% 50%;
+  }
+  100% {
+    transform: translateX(100%);
+    background-position: 100% 50%;
+  }
+}
